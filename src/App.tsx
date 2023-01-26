@@ -1,4 +1,6 @@
 import { Disclosure } from "@headlessui/react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { ConnectKitButton } from "connectkit";
 import { pools } from "../data";
 import { PoolCard } from "./components/PoolCard";
 
@@ -57,22 +59,23 @@ function App() {
                       </div>
                     </div>
                   </div>
+
+                  <ConnectKitButton />
+
                   <div className="-mr-2 flex md:hidden">
                     {/* Mobile menu button */}
                     <Disclosure.Button className="inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                       <span className="sr-only">Open main menu</span>
                       {open ? (
-                        // <XMarkIcon
-                        //   className="block h-6 w-6"
-                        //   aria-hidden="true"
-                        // />
-                        <></>
+                        <XMarkIcon
+                          className="block h-6 w-6"
+                          aria-hidden="true"
+                        />
                       ) : (
-                        // <Bars3Icon
-                        //   className="block h-6 w-6"
-                        //   aria-hidden="true"
-                        // />
-                        <></>
+                        <Bars3Icon
+                          className="block h-6 w-6"
+                          aria-hidden="true"
+                        />
                       )}
                     </Disclosure.Button>
                   </div>
@@ -97,25 +100,6 @@ function App() {
                       {item.name}
                     </Disclosure.Button>
                   ))}
-                </div>
-                <div className="border-t border-gray-700 pt-4 pb-3">
-                  <div className="flex items-center px-5">
-                    <div className="flex-shrink-0">
-                      <img
-                        className="h-10 w-10 rounded-full"
-                        src={user.imageUrl}
-                        alt=""
-                      />
-                    </div>
-                    <div className="ml-3">
-                      <div className="text-base font-medium leading-none text-white">
-                        {user.name}
-                      </div>
-                      <div className="text-sm font-medium leading-none text-gray-400">
-                        {user.email}
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </Disclosure.Panel>
             </>
