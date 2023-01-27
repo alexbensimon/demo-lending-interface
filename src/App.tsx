@@ -1,8 +1,7 @@
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { ConnectKitButton } from "connectkit";
-import { pools } from "../data";
-import { PoolCard } from "./components/PoolCard";
+import { PoolList } from "./components/PoolList";
 
 const navigation = [
   { name: "Pools", href: "#", current: true },
@@ -11,12 +10,6 @@ const navigation = [
   { name: "Team", href: "#", current: false },
   { name: "Reports", href: "#", current: false },
 ];
-const user = {
-  name: "Tom Cook",
-  email: "tom@example.com",
-  imageUrl:
-    "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-};
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
@@ -113,15 +106,8 @@ function App() {
             </h1>
           </div>
         </header>
-        <main>
-          <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-            <dl className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {pools.map((pool) => (
-                <PoolCard key={pool.id} poolData={pool} />
-              ))}
-            </dl>
-          </div>
-        </main>
+
+        <PoolList />
       </div>
     </>
   );

@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Pool } from "../../types";
+import { Pool } from "../types";
 import { PoolCardActions } from "./PoolCardActions";
 
 type Props = {
@@ -7,7 +7,7 @@ type Props = {
 };
 
 export const PoolCard: FC<Props> = ({
-  poolData: { id, token, yieldProvider, apy, tvl },
+  poolData: { id, token, yieldProvider, apy, tvl, available },
 }) => {
   return (
     <div
@@ -50,7 +50,7 @@ export const PoolCard: FC<Props> = ({
           </div>
         </div>
       </div>
-      <PoolCardActions tokenName={token.name} />
+      <PoolCardActions tokenName={token.name} available={available} />
     </div>
   );
 };

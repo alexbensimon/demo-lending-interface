@@ -9,4 +9,5 @@ export type Pool = {
   yieldProvider: string;
   apy: number;
   tvl: number;
+  available: number;
 };

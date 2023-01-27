@@ -1,13 +1,12 @@
 import { FC, useState } from "react";
-import { Token } from "../../types";
+import { Token } from "../types";
 
 type Props = {
   tokenName: Token["name"];
+  available: number;
 };
 
-export const PoolCardActions: FC<Props> = ({ tokenName }) => {
-  const available: number = 0;
-
+export const PoolCardActions: FC<Props> = ({ tokenName, available }) => {
   const [selectorDisplayed, displaySelector] = useState(false);
   const [amount, setAmount] = useState(available);
 

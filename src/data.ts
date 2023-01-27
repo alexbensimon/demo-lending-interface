@@ -18,6 +18,7 @@ export const pools: Pool[] = [
     yieldProvider: "Lushly",
     apy: 17.0,
     tvl: 124000,
+    available: 100,
   },
   {
     id: "975f85d6-f917-4525-9962-0efd22131dd9",
@@ -25,6 +26,7 @@ export const pools: Pool[] = [
     yieldProvider: "Anvil",
     apy: 22.3,
     tvl: 97000,
+    available: 100,
   },
   {
     id: "4ec3c33e-a04d-47d2-8f91-ccc8cfce972e",
@@ -32,5 +34,6 @@ export const pools: Pool[] = [
     yieldProvider: "Scenic",
     apy: 8.5,
     tvl: 4532000,
+    available: 0,
   },
 ];
