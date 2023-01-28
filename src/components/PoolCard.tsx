@@ -4,15 +4,19 @@ import { PoolCardActions } from "./PoolCardActions";
 
 type Props = {
   poolData: Pool;
+  tokenBalance: number;
+  updateBalance: () => void;
 };
 
 export const PoolCard: FC<Props> = ({
-  poolData: { id, token, yieldProvider, apy, tvl, available },
+  poolData: { id, token, yieldProvider, apy, tvl },
+  tokenBalance,
+  updateBalance,
 }) => {
   return (
     <div
       key={id}
-      className="relative overflow-hidden rounded-lg bg-white px-4 pt-5 pb-12 shadow-md sm:px-6 sm:pt-6"
+      className="relative overflow-hidden rounded-lg bg-white px-4 pb-16 pt-5 shadow-md sm:px-6 sm:pt-6"
     >
       <div className="flex justify-between">
         <div className="space-y-4">
@@ -50,7 +54,12 @@ export const PoolCard: FC<Props> = ({
           </div>
         </div>
       </div>
-      <PoolCardActions tokenName={token.name} available={available} />
+      <PoolCardActions
+        tokenName={token.name}
+        poolId={id}
+        tokenBalance={tokenBalance}
+        updateBalance={updateBalance}
+      />
     </div>
   );
 };

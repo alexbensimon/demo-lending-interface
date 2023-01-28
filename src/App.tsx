@@ -1,7 +1,12 @@
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { ConnectKitButton } from "connectkit";
+import { ethers } from "ethers";
+import { useAccount } from "wagmi";
+import { MintButton } from "./components/MintButton";
 import { PoolList } from "./components/PoolList";
+import { contractInfo } from "./contractInfo";
+import { useFakeTokenBalanceOf } from "./generated";
 
 const navigation = [
   { name: "Pools", href: "#", current: true },
@@ -16,6 +21,13 @@ function classNames(...classes: string[]) {
 }
 
 function App() {
+  const { address } = useAccount();
+  const { data, refetch } = useFakeTokenBalanceOf({
+    address: contractInfo.address,
+    args: [address as `0x${string}`],
+  });
+  const tokenBalance = data ? Number(ethers.utils.formatEther(data)) : 0;
+
   return (
     <>
       <div className="min-h-full">
@@ -100,14 +112,15 @@ function App() {
         </Disclosure>
 
         <header className="bg-white shadow">
-          <div className="mx-auto max-w-7xl py-6 px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto flex max-w-7xl items-center justify-between py-6 px-4 sm:px-6 lg:px-8">
             <h1 className="text-3xl font-bold tracking-tight text-gray-900">
               Lending pools
             </h1>
+            <MintButton updateBalance={refetch} />
           </div>
         </header>
 
-        <PoolList />
+        <PoolList tokenBalance={tokenBalance} updateBalance={refetch} />
       </div>
     </>
   );
