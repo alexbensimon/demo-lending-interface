@@ -1,3 +1,3 @@
 export const contractInfo = {
-  address: "0xA51c1fc2f0D1a1b8494Ed1FE312d7C3a78Ed91C0" as `0x${string}`,
+  address: "0x56645BaEFca9Ecc2bA142322Afe10b88Ad571b3E" as `0x${string}`,
 };
