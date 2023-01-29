@@ -26,7 +26,6 @@ export const PoolCardWithdraw: FC<Props> = ({
     args: [poolId],
   });
   const { write, data } = useFakeTokenWithdraw(config);
-
   const { isLoading, isSuccess } = useWaitForTransaction({
     hash: data?.hash,
   });
@@ -36,7 +35,7 @@ export const PoolCardWithdraw: FC<Props> = ({
   }, [isSuccess, updateBalance]);
 
   return (
-    <div className="flex justify-between">
+    <div className="flex h-8 items-center justify-between">
       <div>
         <span className="font-semibold text-gray-800">{deposited}</span>{" "}
         <span className="text-sm font-medium text-gray-600">

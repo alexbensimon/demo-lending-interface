@@ -24,7 +24,6 @@ export const PoolCardDeposit: FC<Props> = ({
     args: [ethers.utils.parseEther(amount), poolId],
   });
   const { write, data } = useFakeTokenDeposit(config);
-
   const { isLoading, isSuccess } = useWaitForTransaction({
     hash: data?.hash,
   });

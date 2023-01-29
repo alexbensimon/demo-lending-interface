@@ -21,7 +21,6 @@ export const PoolCardActions: FC<Props> = ({
   updateBalance,
 }) => {
   const { address } = useAccount();
-
   const { data, refetch } = useFakeTokenDeposits({
     address: contractInfo.address,
     args: [address as `0x${string}`, poolId],
