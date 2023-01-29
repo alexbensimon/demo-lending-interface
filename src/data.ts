@@ -1,13 +1,15 @@
+import daiLogoUrl from "./assets/dai.svg";
+import usdcLogoUrl from "./assets/usdc.svg";
 import { Pool, Token } from "./types";
 
 export const tokens: { [key: string]: Token } = {
   usdc: {
     name: "USDC",
-    imgUrl: "src/assets/usdc.svg",
+    imgUrl: usdcLogoUrl,
   },
   dai: {
     name: "DAI",
-    imgUrl: "src/assets/dai.svg",
+    imgUrl: daiLogoUrl,
   },
 };
 
